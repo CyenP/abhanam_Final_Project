@@ -44,3 +44,11 @@ To reproduce the full workflow and render the final report:
     `here`, `readr`, `labelled`, `gtsummary`, `ggplot2`, `rmarkdown`  
 3.  In the terminal, run: make This command will run all the steps and
     generate the `report.html`
+
+# Output Files
+
+The `output/` folder contains generated results from the analysis
+pipeline: - `boxplot.png`: final figure showing the distribution of age
+by heart-disease status  
+- `.gitkeep`: placeholder file was used to ensure the directory
+structure remains visible in GitHub
