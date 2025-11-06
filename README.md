@@ -1,0 +1,46 @@
+Final Project Readme
+================
+Abha Namjoshi
+
+# Initial Code Description
+
+`code/00_clean_data.R`  
+- Reads raw data from `raw_data/heart.csv`  
+- Applies variable labels and saves a cleaned dataset to
+`output/clean_data.rds`
+
+`code/01_make_table1.R`  
+- Reads the cleaned data  
+- Creates a descriptive summary table using `gtsummary`  
+- Saves the table as `output/table_one.rds`
+
+`code/02_make_box.R`  
+- Reads the cleaned data  
+- Creates a boxplot of age by heart-disease status using `ggplot2`  
+- Saves the figure as `output/boxplot.png`
+
+`code/render_report.R`  
+- Renders the final report from `report.Rmd`  
+- Produces `report.html` as the final output
+
+`report.Rmd`  
+- Combines the summary table and figure into a final written report  
+- Interprets results from the dataset
+
+`Makefile`  
+- Contains rules for building the full analysis and final report  
+- `make` runs the entire workflow: cleans data, generates table and
+figure, and renders the report  
+- `make clean` removes intermediate output files
+
+------------------------------------------------------------------------
+
+# Generating Final Report
+
+To reproduce the full workflow and render the final report:
+
+1.  Open the project folder in RStudio or your terminal.  
+2.  Make sure the required R packages are installed:  
+    `here`, `readr`, `labelled`, `gtsummary`, `ggplot2`, `rmarkdown`  
+3.  In the terminal, run: make This command will run all the steps and
+    generate the `report.html`

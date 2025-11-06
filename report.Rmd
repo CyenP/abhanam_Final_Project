@@ -1,0 +1,60 @@
+---
+title: "Final Project"
+author: "Abha Namjoshi"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+
+# Introduction
+This report uses the *Heart Failure Prediction* dataset from Kaggle, which contains 918 adults and 12 routinely collected clinical variables. It has a binary outcome of aquiring HeartDisease where 1 = disease, 0 = no disease. Predictors include demographics such as age and sex, variables about symptoms and EKG changes that include ChestPainType, RestingECG, ExerciseAngina, ST_Slope, vitals and labs (RestingBP, Cholesterol, FastingBS), and exercise test metrics (MaxHR, Oldpeak). Some inconsistencies such as zeros in variable Cholesterol are observed which will be examined during preprocessing.  
+Dataset link: <https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction>
+
+## Objectives
+1. Describe the data with summary statistics and visualizations of key risk factors.  
+2. Explore relationships between each predictor variable and the heart-disease outcome.  
+3. Fit and interpret a logistic regression model to quantify associations and predict heart disease outcome
+
+
+```{r, loadinglib, include=FALSE}
+library(labelled)
+library(gtsummary)
+library(here)
+library(ggplot2)
+```
+
+
+```{r, load, echo=FALSE, message=FALSE}
+here::i_am("report.Rmd")
+data <- readRDS(
+  file = here::here("output/clean_data.rds")
+)
+
+```
+
+# Tabular analysis
+
+```{r, table, echo=FALSE}
+table_one <- readRDS(
+  file = here::here("output/table_one.rds")
+)
+table_one
+```
+
+## Description 
+This table summarizes the key characteristics and demographics of the outcome- Heart Disease and other variables. The table includes data on 918 partcipants (n=918) and provides distribution of the participants accross all variables such as Age, Sex, ChestPainType, RestingBP, Cholesterol, FastingBS, RestingECG, MaxHR, ExerciseAngina, Oldpeak, ST_Slope and the outcome which is HeartDisease. 79% of the particpants are males while 21% are females. Higher number of men has the disease outcome. Higher age was observed among those with the disease outcome.
+
+
+# Graphical Analysis
+
+```{r, plot2, echo=FALSE, warning=FALSE, message=FALSE}
+library(knitr)
+knitr::include_graphics(
+  here::here("output/boxplot.png")
+)
+
+```
+
+## Description
+The box plot gives us distribution of age with the presence or absence of disease outcome. We can observe that Median age with those with the disease is higher than those without the disease outcome. This is indicative of association of disease with increase in age.
+
