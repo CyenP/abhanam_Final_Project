@@ -52,3 +52,11 @@ pipeline: - `boxplot.png`: final figure showing the distribution of age
 by heart-disease status  
 - `.gitkeep`: placeholder file was used to ensure the directory
 structure remains visible in GitHub
+
+# Synchronizing the Package Repository
+
+This project uses `renv` to ensure reproducible R package environment.
+After cloning the repository, run the following command: `make install`
+
+This will automatically restore all required R packages using the
+`renv.lock` file

@@ -10,6 +10,10 @@ output/table_one.rds: code/01_make_table1.R output/clean_data.rds
 	
 output/boxplot.png: code/02_make_box.R output/clean_data.rds
 	Rscript code/02_make_box.R
+
+.PHONY: install
+install:
+	Rscript -e "renv::restore(prompt = FALSE)"
 	
 .PHONY: clean
 clean: 
